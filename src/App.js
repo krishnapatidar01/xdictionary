@@ -42,12 +42,11 @@ function App() {
       />
       <button onClick={handleSearch}>Search</button>
 
-      {showDefinition && (
-        <div>
-          <h3>Definition:</h3>
-          <p>{definition}</p>
-        </div>
-      )}
+    <div>
+  <h3>Definition:</h3>
+  <p>{showDefinition ? definition : "Please enter a word to see its meaning."}</p>
+</div>
+
     </div>
   );
 }
