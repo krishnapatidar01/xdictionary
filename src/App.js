@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import "./App.css";
 
-function App() {
-  const dictionary = [
-    { word: "React", meaning: "A JavaScript library for building user interfaces." },
-    { word: "Component", meaning: "A reusable building block in React." },
-    { word: "State", meaning: "An object that stores data for a component." },
-  ];
+const dictionary = [
+  { word: "React", meaning: "A JavaScript library for building user interfaces." },
+  { word: "Component", meaning: "Reusable pieces of UI in React." },
+  { word: "State", meaning: "An object that determines how a component behaves and renders." },
+  { word: "Props", meaning: "Inputs to components used for passing data." }
+];
 
+function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [result, setResult] = useState(null);
 
   const handleSearch = () => {
+    const trimmed = searchTerm.trim();
+
     const found = dictionary.find(
-      (entry) => entry.word.toLowerCase() === searchTerm.trim().toLowerCase()
+      (entry) => entry.word.toLowerCase() === trimmed.toLowerCase()
     );
 
     if (found) {
@@ -28,8 +31,8 @@ function App() {
       <h1>Dictionary App</h1>
       <input
         type="text"
-        value={searchTerm}
         placeholder="Enter word to search"
+        value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
       <button onClick={handleSearch}>Search</button>
