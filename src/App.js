@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import "./App.css";
 
-const dictionary = [
-  { word: "React", meaning: "A JavaScript library for building user interfaces." },
-  { word: "Component", meaning: "Reusable pieces of UI in React." },
-  { word: "State", meaning: "An object that determines how a component behaves and renders." },
-  { word: "Props", meaning: "Inputs to components used for passing data." }
-];
+const dictionary = 
+[
+
+    { word: "React", meaning: "A JavaScript library for building user interfaces." },
+
+    { word: "Component", meaning: "A reusable building block in React." },
+
+    { word: "State", meaning: "An object that stores data for a component." }
+
+]
+;
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
