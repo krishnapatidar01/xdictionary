@@ -8,24 +8,24 @@ const dictionary = [
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [definition, setDefinition] = useState("");
+  const [result, setResult] = useState(null);
 
   const handleSearch = () => {
-    const entry = dictionary.find(
-      (item) => item.word.toLowerCase() === searchTerm.toLowerCase()
+    const found = dictionary.find(
+      (entry) => entry.word.toLowerCase() === searchTerm.toLowerCase()
     );
 
-    if (entry) {
-      setDefinition(entry.meaning);
+    if (found) {
+      setResult({ found: true, meaning: found.meaning });
     } else {
-      setDefinition("Word not found in the dictionary.");
+      setResult({ found: false });
     }
   };
 
   return (
     <div style={{ padding: "2rem" }}>
-      <h1>Dictionary App</h1> 
-      
+      <h1>Dictionary App</h1>
+
       <input
         type="text"
         placeholder="Enter word"
@@ -34,14 +34,14 @@ function App() {
       />
       <button onClick={handleSearch}>Search</button>
 
-      {definition === "Word not found in the dictionary." ? (
-        <p>{definition}</p>
-      ) : (
-        definition && (
+      {result && (
+        result.found ? (
           <>
             <h3>Definition:</h3>
-            <p>{definition}</p>
+            <p>{result.meaning}</p>
           </>
+        ) : (
+          <p>Word not found in the dictionary.</p>
         )
       )}
     </div>
