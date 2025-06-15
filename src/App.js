@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>XDictionary</h1>
+      <h1>Dictionary App</h1>
       <input
         type="text"
         value={searchTerm}
